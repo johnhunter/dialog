@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dialog</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <h1>&#x3C;dialog&#x3E;</h1>
+
+    <button onclick="window['foo-dialog'].showModal()">Open fooDialog</button>
+
+    <dialog id="foo-dialog">
+      <form method="dialog">
+        <button onclick="barDialog.showModal(); return false">
+          Open barDialog
+        </button>
+
+        <hr />
+        <h2>The dialog</h2>
+
+        <p>
+          <label for="favAnimal">Favorite animal:</label>
+          <select id="favAnimal" name="favAnimal">
+            <option></option>
+            <option>Brine shrimp</option>
+            <option>Red panda</option>
+            <option>Spider monkey</option>
+          </select>
+        </p>
+
+        <button value="cancel">Cancel</button>
+        <button type="submit">Confirm</button>
+      </form>
+    </dialog>
+
+    <dialog id="barDialog">
+      <div class="under">This is under.</div>
+      <form method="dialog">
+        <p>2nd dialog</p>
+        <button value="cancel">Cancel</button>
+        <button value="confirm">Confirm</button>
+      </form>
+    </dialog>
+
+    <script>
+      document.body.addEventListener('click', (e) => {
+        if (e.target.nodeName === 'DIALOG') {
+          e.target.close();
+        }
+      });
+    </script>
+  </body>
+</html>

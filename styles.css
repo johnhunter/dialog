@@ -1,0 +1,39 @@
+body {
+  font-family: sans-serif;
+  margin: 2rem;
+}
+
+/*
+  Dialog child should fill the entire element so clicks on the backdrop can be used to close.
+*/
+dialog {
+  max-width: 75vw;
+  min-width: 50vw;
+  padding: 0;
+  border-radius: 0.75rem;
+  border: 1px solid rgb(0, 0, 0, 0.3);
+  box-shadow: 0 0.5rem 2rem rgb(0, 0, 0, 0.3);
+}
+dialog > form {
+  padding: 1.5rem;
+}
+dialog::backdrop {
+  background: rgba(128, 128, 128, 0.5);
+}
+
+#barDialog {
+  /* Fix to top of viewport */
+  margin-top: 2rem;
+  min-width: unset;
+}
+
+#barDialog form {
+  position: relative;
+  z-index: 1;
+  background-color: inherit;
+}
+
+#barDialog .under {
+  position: absolute;
+  z-index: 0;
+}
